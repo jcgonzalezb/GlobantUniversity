@@ -10,4 +10,9 @@ public class Student {
         this.id = id;
         this.age = age;
     }
+
+    public String getName() { return this.name; }
+    public int getId() { return this.id; }
+    public int getAge() { return this.age; }
+
 }

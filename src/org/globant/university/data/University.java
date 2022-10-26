@@ -17,4 +17,39 @@ public class University {
         this.courseList = new ArrayList<>();
     }
 
+    public String getName() { return this.name; }
+
+    public List<Student> getStudentList() {
+        return studentList;
+    }
+
+    public Student getStudentByIndex(int index) {
+        return studentList.get(index);
+    }
+
+    public int getStudentAmount(){
+        return studentList.size();
+    }
+
+    public void insertStudent(Student student){
+        this.studentList.add(student);
+    }
+
+
+    public void insertTeacherFullTime(TeacherFullTime teacherFullTime){
+        this.teacherList.add(teacherFullTime);
+    }
+
+    public void insertTeacherPartTime(TeacherPartTime teacherPartTime){
+        this.teacherList.add(teacherPartTime);
+    }
+
+    public List<Course> getCourseList() {
+        return courseList;
+    }
+
+    public void insertCourse(Course course) {
+        this.courseList.add(course);
+    }
+
 }
