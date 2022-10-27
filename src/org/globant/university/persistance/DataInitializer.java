@@ -50,10 +50,16 @@ public class DataInitializer {
     public static void loadCoursesIntoUni(University GlobantUniversity) {
         ArrayList<Student> studentCourseList1 = new ArrayList<>();
         ArrayList<Student> studentCourseList2 = new ArrayList<>();
-        Course course1  = new Course("Logistics", 101, "York Roessler", studentCourseList1 );
-        Course course2  = new Course("Math", 102, "Priyanto Kusuma", studentCourseList2 );
+        ArrayList<Student> studentCourseList3 = new ArrayList<>();
+        ArrayList<Student> studentCourseList4 = new ArrayList<>();
+        Course course1  = new Course("Scrum", 101, "York Roessler", studentCourseList1 );
+        Course course2  = new Course("Wireline", 102, "Priyanto Kusuma", studentCourseList2 );
+        Course course3  = new Course("Logistics", 102, "Marcus Theller", studentCourseList3 );
+        Course course4  = new Course("Business", 102, "Marco Azuero", studentCourseList4 );
         GlobantUniversity.insertCourse(course1);
         GlobantUniversity.insertCourse(course2);
+        GlobantUniversity.insertCourse(course3);
+        GlobantUniversity.insertCourse(course4);
     }
 
 
