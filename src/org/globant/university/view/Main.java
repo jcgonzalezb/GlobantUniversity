@@ -14,6 +14,9 @@ public class Main {
         System.out.println("Welcome to " + GlobantUniversity.getName() + "\n");
         DataInitializer.loadStudentsIntoUni(GlobantUniversity);
         printStudentList(GlobantUniversity);
+        DataInitializer.loadFullTimeTeachersIntoUni(GlobantUniversity);
+        DataInitializer.loadPartTimeTeachersIntoUni(GlobantUniversity);
+        printTeacherList(GlobantUniversity);
     }
 
     public static void printStudentList(University GlobantUniversity) {
@@ -29,5 +32,40 @@ public class Main {
             }
         }
     }
+
+    public static void TeacherListComplete(University GlobantUniversity) {
+        List<String> teachers = GlobantUniversity.getTeacherCompleteList();
+        List<TeacherFullTime> teacherFullTime = GlobantUniversity.getTeacherFullTimeList();
+        List<TeacherPartTime> teacherPartTime = GlobantUniversity.getTeacherPartTimeList();
+        for(int i =0; i < GlobantUniversity.getTeacherFullTimeAmount(); i++) {
+            TeacherFullTime currentTeacher = teacherFullTime.get(i);
+            teachers.add(currentTeacher.getName());
+        }
+        for(int i =0; i < GlobantUniversity.getTeacherPartTimeAmount(); i++) {
+            TeacherPartTime currentTeacher = teacherPartTime.get(i);
+            teachers.add(currentTeacher.getName());
+        }
+    }
+
+
+    public static void printTeacherList(University GlobantUniversity) {
+        if (GlobantUniversity.getStudentAmount() == 0) {
+            System.out.println("No students registered on the university.\n");
+        } else {
+            TeacherListComplete(GlobantUniversity);
+            List<String> teachers = GlobantUniversity.getTeacherCompleteList();
+            System.out.println("List of teachers: ");
+            for(int i =0; i < GlobantUniversity.getTeacherCompleteListAmount(); i++) {
+                String currentStudent = teachers.get(i);
+                System.out.println(currentStudent);
+            }
+        }
+
+
+    }
+
+
+
+
 
 }

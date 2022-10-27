@@ -26,15 +26,22 @@ public class DataInitializer {
         GlobantUniversity.insertStudent(student6);
     }
 
-    public static void loadFullTimeTeachersIntoUni(TeacherFullTime TeacherFullTime) {
-        TeacherFullTime teacherFullTime1 = new TeacherFullTime("York", 400, 4);
-        TeacherFullTime teacherFullTime2 = new TeacherFullTime("Priyanto", 400, 5 );
+    public static void loadFullTimeTeachersIntoUni(University GlobantUniversity) {
+        TeacherFullTime teacherFullTime1 = new TeacherFullTime("York Roessler", 400, 4);
+        TeacherFullTime teacherFullTime2 = new TeacherFullTime("Priyanto Kusuma", 400, 5 );
+        GlobantUniversity.insertTeacherFullTime(teacherFullTime1);
+        GlobantUniversity.insertTeacherFullTime(teacherFullTime2);
     }
 
-    public static void loadPartTimeTeachersIntoUni(TeacherPartTime TeacherPartTime) {
-        TeacherPartTime teacherPartTime1 = new TeacherPartTime("Marcus", 200, 20);
-        TeacherPartTime teacherPartTime2 = new TeacherPartTime("Valeria", 200, 30);
+    public static void loadPartTimeTeachersIntoUni(University GlobantUniversity) {
+        TeacherPartTime teacherPartTime1 = new TeacherPartTime("Marcus Theller", 200, 20);
+        TeacherPartTime teacherPartTime2 = new TeacherPartTime("Marco Azuero", 200, 30);
+        GlobantUniversity.insertTeacherPartTime(teacherPartTime1);
+        GlobantUniversity.insertTeacherPartTime(teacherPartTime2);
     }
+
+
+
 
 
 }

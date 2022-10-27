@@ -12,4 +12,7 @@ public class TeacherPartTime extends Teacher {
     public double totalSalary() {
         return (hoursWeek * basicSalary);
     }
+
+
+    public String getName() { return this.name; }
 }

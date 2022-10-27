@@ -7,13 +7,18 @@ public class University {
     public String name;
 
     public List<Student> studentList;
-    public List<Teacher> teacherList;
+
+    public List<TeacherFullTime> teacherFullTimeList;
+    public List<TeacherPartTime> teacherPartTimeList;
+    public List<String> teacherCompleteList;
     public List<Course> courseList;
 
     public University(String name) {
         this.name = name;
         this.studentList = new ArrayList<>();
-        this.teacherList = new ArrayList<>();
+        this.teacherFullTimeList = new ArrayList<>();
+        this.teacherPartTimeList = new ArrayList<>();
+        this.teacherCompleteList = new ArrayList<>();
         this.courseList = new ArrayList<>();
     }
 
@@ -31,13 +36,32 @@ public class University {
         this.studentList.add(student);
     }
 
-
-    public void insertTeacherFullTime(TeacherFullTime teacherFullTime){
-        this.teacherList.add(teacherFullTime);
+    public List<TeacherFullTime> getTeacherFullTimeList() {
+        return teacherFullTimeList;
     }
 
-    public void insertTeacherPartTime(TeacherPartTime teacherPartTime){
-        this.teacherList.add(teacherPartTime);
+    public int getTeacherFullTimeAmount() { return teacherFullTimeList.size(); }
+
+    public void insertTeacherFullTime(TeacherFullTime teacherFullTime) {
+        this.teacherFullTimeList.add(teacherFullTime);
+    }
+    public List<TeacherPartTime> getTeacherPartTimeList() {
+        return teacherPartTimeList;
+    }
+    public int getTeacherPartTimeAmount() { return teacherPartTimeList.size(); }
+
+    public void insertTeacherPartTime(TeacherPartTime teacherPartTime) {
+        this.teacherPartTimeList.add(teacherPartTime);
+    }
+
+    public List<String> getTeacherCompleteList() {
+        return teacherCompleteList;
+    }
+
+    public int getTeacherCompleteListAmount() { return teacherCompleteList.size(); }
+
+    public void insertTeacherComplete(String teacher) {
+        this.teacherCompleteList.add(teacher);
     }
 
     public List<Course> getCourseList() {
