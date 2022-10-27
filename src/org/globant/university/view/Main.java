@@ -14,7 +14,8 @@ public class Main {
         DataInitializer.loadFullTimeTeachersIntoUni(GlobantUniversity);
         DataInitializer.loadPartTimeTeachersIntoUni(GlobantUniversity);
         printTeacherList(GlobantUniversity);
-
+        DataInitializer.loadCoursesIntoUni(GlobantUniversity);
+        printCourseList(GlobantUniversity);
     }
 
     public static void printStudentList(University GlobantUniversity) {
@@ -68,7 +69,7 @@ public class Main {
         } else {
             List<Course> courses = GlobantUniversity.getCourseList();
             System.out.println("List of courses: ");
-            for(int i =0; i < GlobantUniversity.getStudentListAmount(); i++) {
+            for(int i =0; i < GlobantUniversity.getCourseListAmount(); i++) {
                 Course currentCourse = courses.get(i);
                 System.out.println(currentCourse.getName());
             }

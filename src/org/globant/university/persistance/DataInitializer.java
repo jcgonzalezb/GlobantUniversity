@@ -2,6 +2,10 @@ package org.globant.university.persistance;
 
 import org.globant.university.data.*;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+
 public class DataInitializer {
     public static University loadUniversity() {
         University GlobantUniversity = new University("Globant University");
@@ -36,10 +40,23 @@ public class DataInitializer {
         GlobantUniversity.insertTeacherPartTime(teacherPartTime1);
         GlobantUniversity.insertTeacherPartTime(teacherPartTime2);
     }
+
+    //public static void loadStudentsIntoCourse(Course Logistics) {
+      //  Student student1 = new Student("Juan Gonzalez", 17);
+        //Logistics.insertStudentCourse(student1);
+    //}
+
+
     public static void loadCoursesIntoUni(University GlobantUniversity) {
-        Course course1  = new Course("Logistics", 101, "York Roessler");
+        ArrayList<Student> studentCourseList1 = new ArrayList<>();
+        ArrayList<Student> studentCourseList2 = new ArrayList<>();
+        Course course1  = new Course("Logistics", 101, "York Roessler", studentCourseList1 );
+        Course course2  = new Course("Math", 102, "Priyanto Kusuma", studentCourseList2 );
         GlobantUniversity.insertCourse(course1);
+        GlobantUniversity.insertCourse(course2);
     }
+
+
 
 
 
