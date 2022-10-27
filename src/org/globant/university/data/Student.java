@@ -5,9 +5,9 @@ public class Student {
     private final int id;
     private int age;
 
-    public Student(String name, int id, int age) {
+    public Student(String name, int age) {
         this.name = name;
-        this.id = id;
+        this.id = (int)(100000 * Math.random());
         this.age = age;
     }
 

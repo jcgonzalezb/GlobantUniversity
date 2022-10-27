@@ -12,19 +12,18 @@ public class DataInitializer {
     }
 
     public static void loadStudentsIntoUni(University GlobantUniversity) {
-        Student student1 = new Student("Juan", 1, 17);
-        Student student2 = new Student("Diego", 2, 21);
-        Student student3 = new Student("Maria",3,20);
-        Student student4 = new Student("Jose", 4, 23);
-        Student student5 = new Student("Ana", 5, 24);
-        Student student6 = new Student("Ken", 6, 25);
+        Student student1 = new Student("Juan Gonzalez", 17);
+        Student student2 = new Student("Diego Gonzalez", 21);
+        Student student3 = new Student("Maria Bautista", 20);
+        Student student4 = new Student("Jose Gonzalez", 23);
+        Student student5 = new Student("Ana Buvinghausen", 24);
+        Student student6 = new Student("Ken Buvinghausen", 25);
         GlobantUniversity.insertStudent(student1);
         GlobantUniversity.insertStudent(student2);
         GlobantUniversity.insertStudent(student3);
         GlobantUniversity.insertStudent(student4);
         GlobantUniversity.insertStudent(student5);
         GlobantUniversity.insertStudent(student6);
-
     }
 
     public static void loadFullTimeTeachersIntoUni(TeacherFullTime TeacherFullTime) {

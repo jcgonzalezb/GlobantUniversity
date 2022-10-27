@@ -23,10 +23,6 @@ public class University {
         return studentList;
     }
 
-    public Student getStudentByIndex(int index) {
-        return studentList.get(index);
-    }
-
     public int getStudentAmount(){
         return studentList.size();
     }
