@@ -19,15 +19,21 @@ public class Course {
     }
 
     public String getName() { return this.name; }
-    public List<Student> getStudentListCourse() {
-        return studentListCourse;
-    }
-    public int getStudentListCourseAmount(){
-        return studentListCourse.size();
-    }
+
     public void insertStudentCourse(Student student){
         this.studentListCourse.add(student);
     }
+
+    public int getStudentListCourseAmount(){
+        return studentListCourse.size();
+    }
+
+    public List<Student> getStudentListCourse() {
+        return studentListCourse;
+    }
+
+
+
 
 
 

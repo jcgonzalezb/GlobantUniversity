@@ -4,6 +4,7 @@ import org.globant.university.data.*;
 import org.globant.university.persistance.DataInitializer;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,7 +17,51 @@ public class Main {
         printTeacherList(GlobantUniversity);
         DataInitializer.loadCoursesIntoUni(GlobantUniversity);
         printCourseList(GlobantUniversity);
+        displayInitialMenu(GlobantUniversity);
+        // DataInitializer.printStudentListCourse();
+
     }
+
+    public static void displayInitialMenu(University GlobantUniversity) {
+        Scanner scan = new Scanner(System.in);
+        boolean exit = false;
+        do {
+            System.out.println("Welcome to the Globant University menu\n");
+            System.out.println("Select you option: ");
+            System.out.println("1.  Print all the professors with its data");
+            System.out.println("2.  Print all the classes");
+            System.out.println("3.  Create a new student and add it to an existing class");
+            System.out.println("4.  Create a new class and add an existing teacher, existing students and its relevant data");
+            System.out.println("5.  List all the classes in which a given student is included");
+            System.out.println("6.  Exit");
+            int option = scan.nextInt();
+            scan = new Scanner(System.in);
+            switch (option) {
+                case 1:
+                    System.out.println("Work in progress 1");
+                    break;
+                case 2:
+                    System.out.println("Work in progress 2");
+                    break;
+                case 3:
+                    System.out.println("Work in progress 3");
+                    break;
+                case 4:
+                    System.out.println("Work in progress 4");
+                    break;
+                case 5:
+                    System.out.println("Work in progress 5");
+                    break;
+                case 6:
+                    System.out.println("Have a great day!\n");
+                    break;
+                default:
+                    System.out.println("Please insert a valid option\n");
+                    break;
+            }
+        } while (!exit);
+    }
+
 
     public static void printStudentList(University GlobantUniversity) {
         if (GlobantUniversity.getStudentListAmount() == 0) {
@@ -76,7 +121,6 @@ public class Main {
             System.out.println("\n");
         }
     }
-
 
 
 

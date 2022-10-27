@@ -52,20 +52,41 @@ public class DataInitializer {
         ArrayList<Student> studentCourseList2 = new ArrayList<>();
         ArrayList<Student> studentCourseList3 = new ArrayList<>();
         ArrayList<Student> studentCourseList4 = new ArrayList<>();
-        Course course1  = new Course("Scrum", 101, "York Roessler", studentCourseList1 );
-        Course course2  = new Course("Wireline", 102, "Priyanto Kusuma", studentCourseList2 );
-        Course course3  = new Course("Logistics", 102, "Marcus Theller", studentCourseList3 );
-        Course course4  = new Course("Business", 102, "Marco Azuero", studentCourseList4 );
-        GlobantUniversity.insertCourse(course1);
-        GlobantUniversity.insertCourse(course2);
-        GlobantUniversity.insertCourse(course3);
-        GlobantUniversity.insertCourse(course4);
+        Course scrum  = new Course("Scrum", 101, "York Roessler", studentCourseList1 );
+        Course wireline  = new Course("Wireline", 102, "Priyanto Kusuma", studentCourseList2 );
+        Course logistics  = new Course("Logistics", 102, "Marcus Theller", studentCourseList3 );
+        Course business  = new Course("Business", 102, "Marco Azuero", studentCourseList4 );
+        Student student1 = new Student("Juan Gonzalez", 17);
+        Student student2 = new Student("Diego Gonzalez", 21);
+        Student student3 = new Student("Maria Bautista", 20);
+        Student student4 = new Student("Jose Gonzalez", 23);
+        Student student5 = new Student("Ana Buvinghausen", 24);
+        Student student6 = new Student("Ken Buvinghausen", 25);
+        scrum.insertStudentCourse(student1);
+        scrum.insertStudentCourse(student2);
+        GlobantUniversity.insertCourse(scrum);
+        wireline.insertStudentCourse(student3);
+        wireline.insertStudentCourse(student4);
+        GlobantUniversity.insertCourse(wireline);
+        logistics.insertStudentCourse(student5);
+        GlobantUniversity.insertCourse(logistics);
+        business.insertStudentCourse(student6);
+        GlobantUniversity.insertCourse(business);
     }
 
-
-
-
-
-
+    //public static void printStudentListCourse(Course course) {
+    //    if (course.getStudentListCourseAmount() == 0) {
+    //        System.out.println("No students registered on the course.\n");
+    //    } else {
+    //        List<Course> courses = course.getStudentListCourse();
+    //        System.out.println("List of students: ");
+    //        for(int i =0; i < course.getStudentListCourseAmount(); i++) {
+    //            Student currentStudent = courses.get(i);
+    //            System.out.println(currentStudent.getName());
+    //            //System.out.println(currentStudent.getId());
+    //        }
+    //        System.out.println("\n");
+    //    }
+    //}
 
 }
