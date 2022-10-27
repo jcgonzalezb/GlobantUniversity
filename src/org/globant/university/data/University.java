@@ -5,9 +5,7 @@ import java.util.List;
 
 public class University {
     public String name;
-
     public List<Student> studentList;
-
     public List<TeacherFullTime> teacherFullTimeList;
     public List<TeacherPartTime> teacherPartTimeList;
     public List<String> teacherCompleteList;
@@ -28,7 +26,7 @@ public class University {
         return studentList;
     }
 
-    public int getStudentAmount(){
+    public int getStudentListAmount(){
         return studentList.size();
     }
 
@@ -53,21 +51,15 @@ public class University {
     public void insertTeacherPartTime(TeacherPartTime teacherPartTime) {
         this.teacherPartTimeList.add(teacherPartTime);
     }
-
     public List<String> getTeacherCompleteList() {
         return teacherCompleteList;
     }
-
     public int getTeacherCompleteListAmount() { return teacherCompleteList.size(); }
-
-    public void insertTeacherComplete(String teacher) {
-        this.teacherCompleteList.add(teacher);
-    }
 
     public List<Course> getCourseList() {
         return courseList;
     }
-
+    public int getCourseListAmount() { return courseList.size(); }
     public void insertCourse(Course course) {
         this.courseList.add(course);
     }

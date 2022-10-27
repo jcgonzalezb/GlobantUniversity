@@ -1,9 +1,6 @@
 package org.globant.university.persistance;
 
-import org.globant.university.data.Student;
-import org.globant.university.data.TeacherFullTime;
-import org.globant.university.data.TeacherPartTime;
-import org.globant.university.data.University;
+import org.globant.university.data.*;
 
 public class DataInitializer {
     public static University loadUniversity() {
@@ -38,6 +35,10 @@ public class DataInitializer {
         TeacherPartTime teacherPartTime2 = new TeacherPartTime("Marco Azuero", 200, 30);
         GlobantUniversity.insertTeacherPartTime(teacherPartTime1);
         GlobantUniversity.insertTeacherPartTime(teacherPartTime2);
+    }
+    public static void loadCoursesIntoUni(University GlobantUniversity) {
+        Course course1  = new Course("Logistics", 101, "York Roessler");
+        GlobantUniversity.insertCourse(course1);
     }
 
 
