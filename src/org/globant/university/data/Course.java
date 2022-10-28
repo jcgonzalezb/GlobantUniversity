@@ -20,6 +20,10 @@ public class Course {
 
     public String getName() { return this.name; }
 
+    public Integer getClassroom() { return this.classroom; }
+
+    public String getTeacherName() { return this.teacherName; }
+
     public void insertStudentCourse(Student student){
         this.studentListCourse.add(student);
     }

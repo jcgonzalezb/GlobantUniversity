@@ -79,7 +79,9 @@ public class Main {
             switch (option) {
                 case 1:
                     System.out.println("Work in progress 1");
-                    DataInitializer.printStudentListCourse();
+                    printCourseDataTest(GlobantUniversity);
+                    // DataInitializer.printStudentListCourse(DataInitializer);
+                    //
                     break;
                 case 2:
                     System.out.println("Work in progress 2");
@@ -100,6 +102,24 @@ public class Main {
             }
         } while (!exit);
     }
+
+    public static void printCourseDataTest(University GlobantUniversity) {
+        if (GlobantUniversity.getCourseListAmount() == 0) {
+            System.out.println("No courses registered on the university.\n");
+        } else {
+            List<Course> courses = GlobantUniversity.getCourseList();
+            System.out.println("List of courses: ");
+            for(int i =0; i < GlobantUniversity.getCourseListAmount(); i++) {
+                Course currentCourse = courses.get(i);
+                System.out.println(currentCourse.getName());
+                System.out.println(currentCourse.getClassroom());
+                System.out.println(currentCourse.getTeacherName());
+                System.out.println(currentCourse.getStudentListCourse());
+            }
+            System.out.println("\n");
+        }
+    }
+
 
     public static void printStudentList(University GlobantUniversity) {
         if (GlobantUniversity.getStudentListAmount() == 0) {
