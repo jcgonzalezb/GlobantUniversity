@@ -74,19 +74,19 @@ public class DataInitializer {
         GlobantUniversity.insertCourse(business);
     }
 
-    //public static void printStudentListCourse(Course course) {
-    //    if (course.getStudentListCourseAmount() == 0) {
-    //        System.out.println("No students registered on the course.\n");
-    //    } else {
-    //        List<Course> courses = course.getStudentListCourse();
-    //        System.out.println("List of students: ");
-    //        for(int i =0; i < course.getStudentListCourseAmount(); i++) {
-    //            Student currentStudent = courses.get(i);
-    //            System.out.println(currentStudent.getName());
-    //            //System.out.println(currentStudent.getId());
-    //        }
-    //        System.out.println("\n");
-    //    }
-    //}
+    public static void printStudentListCourse(Course course) {
+        if (course.getStudentListCourseAmount() == 0) {
+            System.out.println("No students registered on the course.\n");
+        } else {
+            List<Student> students = course.getStudentListCourse();
+            System.out.println("List of students: ");
+            for(int i =0; i < course.getStudentListCourseAmount(); i++) {
+                Student currentStudent = students.get(i);
+                System.out.println(currentStudent.getName());
+                //System.out.println(currentStudent.getId());
+            }
+            System.out.println("\n");
+        }
+    }
 
 }

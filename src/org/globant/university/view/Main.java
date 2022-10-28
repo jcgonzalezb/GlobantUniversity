@@ -16,7 +16,6 @@ public class Main {
         DataInitializer.loadPartTimeTeachersIntoUni(GlobantUniversity);
         printTeacherList(GlobantUniversity);
         DataInitializer.loadCoursesIntoUni(GlobantUniversity);
-        printCourseList(GlobantUniversity);
         displayInitialMenu(GlobantUniversity);
         // DataInitializer.printStudentListCourse();
 
@@ -42,6 +41,8 @@ public class Main {
                     break;
                 case 2:
                     System.out.println("Work in progress 2");
+                    printCourseList(GlobantUniversity);
+                    displayCourseMenu(GlobantUniversity);
                     break;
                 case 3:
                     System.out.println("Work in progress 3");
@@ -63,6 +64,42 @@ public class Main {
         } while (!exit);
     }
 
+    public static void displayCourseMenu(University GlobantUniversity) {
+        Scanner scan = new Scanner(System.in);
+        boolean exit = false;
+        do {
+            System.out.println("Select a course to print the course data, including teacher and students\n");
+            System.out.println("1.  Scrum");
+            System.out.println("2.  Wireline");
+            System.out.println("3.  Logistics");
+            System.out.println("4.  Business");
+            System.out.println("5.  Exit");
+            int option = scan.nextInt();
+            scan = new Scanner(System.in);
+            switch (option) {
+                case 1:
+                    System.out.println("Work in progress 1");
+                    DataInitializer.printStudentListCourse();
+                    break;
+                case 2:
+                    System.out.println("Work in progress 2");
+                    break;
+                case 3:
+                    System.out.println("Work in progress 3");
+                    break;
+                case 4:
+                    System.out.println("Work in progress 4");
+                    break;
+                case 5:
+                    System.out.println("Return to the previous menu\n");
+                    exit = true;
+                    break;
+                default:
+                    System.out.println("Please insert a valid option\n");
+                    break;
+            }
+        } while (!exit);
+    }
 
     public static void printStudentList(University GlobantUniversity) {
         if (GlobantUniversity.getStudentListAmount() == 0) {
@@ -79,7 +116,7 @@ public class Main {
         }
     }
 
-    public static void TeacherListComplete(University GlobantUniversity) {
+    public static void teacherListComplete(University GlobantUniversity) {
         List<String> teachers = GlobantUniversity.getTeacherCompleteList();
         List<TeacherFullTime> teacherFullTime = GlobantUniversity.getTeacherFullTimeList();
         List<TeacherPartTime> teacherPartTime = GlobantUniversity.getTeacherPartTimeList();
@@ -95,7 +132,7 @@ public class Main {
 
 
     public static void printTeacherList(University GlobantUniversity) {
-        TeacherListComplete(GlobantUniversity);
+        teacherListComplete(GlobantUniversity);
         List<String> teachers = GlobantUniversity.getTeacherCompleteList();
         if (GlobantUniversity.getTeacherCompleteListAmount() == 0) {
             System.out.println("No teachers registered on the university.\n");
