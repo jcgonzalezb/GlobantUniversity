@@ -7,6 +7,7 @@ import java.util.List;
 
 public class Course {
     public String name;
+    private final int id;
     public int classroom;
     public Teacher teacher;
 
@@ -14,12 +15,14 @@ public class Course {
 
     public Course (String name, int classroom, Teacher teacher, ArrayList<Student> studentListCourse) {
         this.name = name;
+        this.id = (int)(1000 * Math.random());
         this.classroom = classroom;
         this.teacher = teacher;
         this.studentListCourse = new ArrayList<>(studentListCourse);
     }
 
     public String getName() { return this.name; }
+    public int getId() { return this.id; }
 
     public Integer getClassroom() { return this.classroom; }
 
