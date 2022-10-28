@@ -68,31 +68,17 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         boolean exit = false;
         do {
-            System.out.println("Select a course to print the course data, including teacher and students\n");
-            System.out.println("1.  Scrum");
-            System.out.println("2.  Wireline");
-            System.out.println("3.  Logistics");
-            System.out.println("4.  Business");
-            System.out.println("5.  Exit");
+            System.out.println("Select an option: \n");
+            System.out.println("1.  Select the course to print the course data, including teacher and students\n");
+            System.out.println("2.  Return to the previous menu");
             int option = scan.nextInt();
             scan = new Scanner(System.in);
             switch (option) {
                 case 1:
-                    System.out.println("Work in progress 1");
-                    printCourseDataTest(GlobantUniversity);
-                    // DataInitializer.printStudentListCourse(DataInitializer);
-                    //
+                    printCourseData(GlobantUniversity);
+                    //printCourseDataTest(GlobantUniversity);
                     break;
                 case 2:
-                    System.out.println("Work in progress 2");
-                    break;
-                case 3:
-                    System.out.println("Work in progress 3");
-                    break;
-                case 4:
-                    System.out.println("Work in progress 4");
-                    break;
-                case 5:
                     System.out.println("Return to the previous menu\n");
                     exit = true;
                     break;
@@ -102,6 +88,31 @@ public class Main {
             }
         } while (!exit);
     }
+
+
+    public static void printCourseData(University GlobantUniversity) {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Work in progress 1");
+        System.out.println("Write down the name of the course");
+        String tempCourse = scan.nextLine();
+        scan = new Scanner(System.in);
+        List<Course> courses = GlobantUniversity.getCourseList();
+        System.out.println("Course information:");
+        for (int i = 0; i < GlobantUniversity.getCourseListAmount(); i++) {
+            Course currentCourse = courses.get(i);
+            System.out.println(currentCourse.getName());
+            System.out.println((tempCourse));
+            if (tempCourse.equals(currentCourse.getName())) {
+                System.out.println(currentCourse.getName());
+                System.out.println(currentCourse.getClassroom());
+                System.out.println(currentCourse.getTeacherName());
+                System.out.println(currentCourse.getStudentListCourse());
+            } else {
+                System.out.println("Not found");
+            }
+        }
+    }
+
 
     public static void printCourseDataTest(University GlobantUniversity) {
         if (GlobantUniversity.getCourseListAmount() == 0) {
