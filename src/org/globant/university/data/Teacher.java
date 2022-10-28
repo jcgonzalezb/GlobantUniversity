@@ -10,6 +10,9 @@ public abstract class Teacher {
         }
 
     public abstract double totalSalary();
-}
+
+    public String getName() { return this.name; }
+    }
+
 
 

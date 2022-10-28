@@ -27,19 +27,18 @@ public class DataInitializer {
         GlobantUniversity.insertStudent(student6);
     }
 
-    public static void loadFullTimeTeachersIntoUni(University GlobantUniversity) {
-        TeacherFullTime teacherFullTime1 = new TeacherFullTime("York Roessler", 400, 4);
-        TeacherFullTime teacherFullTime2 = new TeacherFullTime("Priyanto Kusuma", 400, 5 );
-        GlobantUniversity.insertTeacherFullTime(teacherFullTime1);
-        GlobantUniversity.insertTeacherFullTime(teacherFullTime2);
+    public static void loadTeachersIntoUni(University GlobantUniversity) {
+        Teacher teacher1 = new TeacherFullTime("York Roessler", 400, 4);
+        Teacher teacher2 = new TeacherFullTime("Priyanto Kusuma", 400, 5 );
+        Teacher teacher3 = new TeacherPartTime("Marcus Theller", 200, 20);
+        Teacher teacher4 = new TeacherPartTime("Marco Azuero", 200, 30);
+
+        GlobantUniversity.insertTeacher(teacher1);
+        GlobantUniversity.insertTeacher(teacher2);
+        GlobantUniversity.insertTeacher(teacher3);
+        GlobantUniversity.insertTeacher(teacher4);
     }
 
-    public static void loadPartTimeTeachersIntoUni(University GlobantUniversity) {
-        TeacherPartTime teacherPartTime1 = new TeacherPartTime("Marcus Theller", 200, 20);
-        TeacherPartTime teacherPartTime2 = new TeacherPartTime("Marco Azuero", 200, 30);
-        GlobantUniversity.insertTeacherPartTime(teacherPartTime1);
-        GlobantUniversity.insertTeacherPartTime(teacherPartTime2);
-    }
 
     //public static void loadStudentsIntoCourse(Course Logistics) {
       //  Student student1 = new Student("Juan Gonzalez", 17);
@@ -52,6 +51,7 @@ public class DataInitializer {
         ArrayList<Student> studentCourseList2 = new ArrayList<>();
         ArrayList<Student> studentCourseList3 = new ArrayList<>();
         ArrayList<Student> studentCourseList4 = new ArrayList<>();
+
         Course scrum  = new Course("Scrum", 101, "York Roessler", studentCourseList1 );
         Course wireline  = new Course("Wireline", 102, "Priyanto Kusuma", studentCourseList2 );
         Course logistics  = new Course("Logistics", 102, "Marcus Theller", studentCourseList3 );
@@ -62,6 +62,7 @@ public class DataInitializer {
         Student student4 = new Student("Jose Gonzalez", 23);
         Student student5 = new Student("Ana Buvinghausen", 24);
         Student student6 = new Student("Ken Buvinghausen", 25);
+
         scrum.insertStudentCourse(student1);
         scrum.insertStudentCourse(student2);
         GlobantUniversity.insertCourse(scrum);
