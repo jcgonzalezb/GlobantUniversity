@@ -1,20 +1,21 @@
 package org.globant.university.data;
 
 import java.lang.reflect.Array;
+import java.time.temporal.TemporalAdjuster;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Course {
     public String name;
     public int classroom;
-    public String teacherName;
+    public Teacher teacher;
 
     public ArrayList<Student> studentListCourse;
 
-    public Course (String name, int classroom, String teacherName, ArrayList<Student> studentListCourse) {
+    public Course (String name, int classroom, Teacher teacher, ArrayList<Student> studentListCourse) {
         this.name = name;
         this.classroom = classroom;
-        this.teacherName = teacherName;
+        this.teacher = teacher;
         this.studentListCourse = new ArrayList<>(studentListCourse);
     }
 
@@ -22,7 +23,7 @@ public class Course {
 
     public Integer getClassroom() { return this.classroom; }
 
-    public String getTeacherName() { return this.teacherName; }
+    public String getTeacherName() { return this.teacher.name; }
 
     public void insertStudentCourse(Student student){
         this.studentListCourse.add(student);

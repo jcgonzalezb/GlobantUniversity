@@ -52,10 +52,15 @@ public class DataInitializer {
         ArrayList<Student> studentCourseList3 = new ArrayList<>();
         ArrayList<Student> studentCourseList4 = new ArrayList<>();
 
-        Course scrum  = new Course("Scrum", 101, "York Roessler", studentCourseList1 );
-        Course wireline  = new Course("Wireline", 102, "Priyanto Kusuma", studentCourseList2 );
-        Course logistics  = new Course("Logistics", 102, "Marcus Theller", studentCourseList3 );
-        Course business  = new Course("Business", 102, "Marco Azuero", studentCourseList4 );
+        Teacher teacher1 = new TeacherFullTime("York Roessler", 400, 4);
+        Teacher teacher2 = new TeacherFullTime("Priyanto Kusuma", 400, 5 );
+        Teacher teacher3 = new TeacherPartTime("Marcus Theller", 200, 20);
+        Teacher teacher4 = new TeacherPartTime("Marco Azuero", 200, 30);
+
+        Course scrum  = new Course("Scrum", 101, teacher1, studentCourseList1 );
+        Course wireline  = new Course("Wireline", 102, teacher2, studentCourseList2 );
+        Course logistics  = new Course("Logistics", 102, teacher3, studentCourseList3 );
+        Course business  = new Course("Business", 102, teacher4, studentCourseList4 );
         Student student1 = new Student("Juan Gonzalez", 17);
         Student student2 = new Student("Diego Gonzalez", 21);
         Student student3 = new Student("Maria Bautista", 20);
@@ -74,12 +79,5 @@ public class DataInitializer {
         business.insertStudentCourse(student6);
         GlobantUniversity.insertCourse(business);
     }
-
-    public static void printCourseTest(Course course) {
-        System.out.println(course.getTeacherName());
-    }
-
-
-
 
 }
