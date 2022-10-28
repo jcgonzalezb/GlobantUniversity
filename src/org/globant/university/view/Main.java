@@ -38,7 +38,7 @@ public class Main {
             scan = new Scanner(System.in);
             switch (option) {
                 case 1:
-                    System.out.println("Work in progress 1");
+                    printTeacherListData(GlobantUniversity);
                     break;
                 case 2:
                     System.out.println("Work in progress 2");
@@ -54,6 +54,7 @@ public class Main {
                     break;
                 case 6:
                     System.out.println("Have a great day!\n");
+                    exit = true;
                     break;
                 default:
                     System.out.println("Please insert a valid option\n");
@@ -120,6 +121,21 @@ public class Main {
             }
             System.out.println("\n");
         }
+    }
+
+    public static void printTeacherListData(University GlobantUniversity) {
+        List<TeacherFullTime> teacherFullTime = GlobantUniversity.getTeacherFullTimeList();
+        List<TeacherPartTime> teacherPartTime = GlobantUniversity.getTeacherPartTimeList();
+        System.out.println("Teacher Name \t\t Salary (USD)");
+        for(int i =0; i < GlobantUniversity.getTeacherFullTimeAmount(); i++) {
+            TeacherFullTime currentTeacher = teacherFullTime.get(i);
+            System.out.print(currentTeacher.getName() +  "\t\t" + currentTeacher.totalSalary() + "\n");
+        }
+        for(int i =0; i < GlobantUniversity.getTeacherPartTimeAmount(); i++) {
+            TeacherPartTime currentTeacher = teacherPartTime.get(i);
+            System.out.print(currentTeacher.getName() +  "\t\t" + currentTeacher.totalSalary() + "\n");
+        }
+        System.out.println("\n");
     }
 
 
