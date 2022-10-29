@@ -48,6 +48,7 @@ public class Main {
                     break;
                 case 4:
                     System.out.println("Work in progress 4");
+                    insertNewCourse(GlobantUniversity);
                     break;
                 case 5:
                     System.out.println("Work in progress 5");
@@ -141,7 +142,7 @@ public class Main {
 
 
     public static void printTeacherList(University GlobantUniversity) {
-        teacherListComplete(GlobantUniversity);
+        // teacherListComplete(GlobantUniversity);
         List<String> teachers = GlobantUniversity.getTeacherCompleteList();
         if (GlobantUniversity.getTeacherCompleteListAmount() == 0) {
             System.out.println("No teachers registered on the university.\n");
@@ -204,7 +205,7 @@ public class Main {
         }
     }
 
-    public void insertNewCourse(University GlobantUniversity){
+    public static void insertNewCourse(University GlobantUniversity){
         Scanner scan = new Scanner(System.in);
         System.out.println("Write down the name of the new course");
         String newCourseName = scan.nextLine();
@@ -224,42 +225,23 @@ public class Main {
                 GlobantUniversity.insertTeacher(currentTeacher);
                 Course newCourse = new Course(newCourseName, existingClassroom, currentTeacher, studentNewCourseList);
                 System.out.println(currentTeacher.getName() + " is assigned to the new " + newCourseName + "course!\n");
+                System.out.println("Write down the name of the existing student");
+                String existingStudent = scan.nextLine();
+                scan = new Scanner(System.in);
+                List<Student> students = GlobantUniversity.getStudentList();
+                for (int j = 0; j < GlobantUniversity.getStudentListAmount(); j++) {
+                    Student currentStudent = students.get(j);
+                    if (existingStudent.equals(currentStudent.getName())) {
+                        GlobantUniversity.insertStudent(currentStudent);
+                        newCourse.insertStudentCourse(currentStudent);
+                        System.out.println(currentStudent.getName() + " is assigned to the new " + newCourse + "course!\n");
+                    } else {
+                        System.out.println("The teacher inserted is not part of the University");
+                    }
+                }
             } else {
                 System.out.println("The teacher inserted is not part of the University");
             }
         }
-
-
-
-
-
-        System.out.println("Write down the name of the existing student");
-        String existingStudent = scan.nextLine();
-        scan = new Scanner(System.in);
-
-        List<Student> students = GlobantUniversity.getStudentList();
-        for (int i = 0; i < GlobantUniversity.getStudentListAmount(); i++) {
-            Student currentStudent = students.get(i);
-            if (existingStudent.equals(currentStudent.getName())) {
-                GlobantUniversity.insertStudent(currentStudent);
-                newCourse.insertStudentCourse(currentStudent);
-                System.out.println(currentStudent.getName() + " is assigned to the new " + newCourse + "course!\n");
-            } else {
-                System.out.println("The teacher inserted is not part of the University");
-            }
-        }
-
-
-
-
-
-
-
-
-
-
-
     }
-
-
 }
