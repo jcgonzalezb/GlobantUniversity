@@ -57,8 +57,8 @@ public class DataInitializer {
 
         Course scrum  = new Course("Scrum", 101, teacher1, studentCourseList1 );
         Course wireline  = new Course("Wireline", 102, teacher2, studentCourseList2 );
-        Course logistics  = new Course("Logistics", 102, teacher3, studentCourseList3 );
-        Course business  = new Course("Business", 102, teacher4, studentCourseList4 );
+        Course logistics  = new Course("Logistics", 103, teacher3, studentCourseList3 );
+        Course business  = new Course("Business", 104, teacher4, studentCourseList4 );
         Student student1 = new Student("Juan Gonzalez", 17);
         Student student2 = new Student("Diego Gonzalez", 21);
         Student student3 = new Student("Maria Bautista", 20);
