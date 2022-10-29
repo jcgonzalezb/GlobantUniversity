@@ -3,6 +3,7 @@ package org.globant.university.view;
 import org.globant.university.data.*;
 import org.globant.university.persistance.DataInitializer;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -206,11 +207,12 @@ public class Main {
     public void insertNewCourse(University GlobantUniversity){
         Scanner scan = new Scanner(System.in);
         System.out.println("Write down the name of the new course");
-        String newName = scan.nextLine();
+        String newCourseName = scan.nextLine();
         scan = new Scanner(System.in);
         System.out.println("Write down the number of the classroom (Choose a number from 100 to 120)");
         Integer existingClassroom = scan.nextInt();
         scan = new Scanner(System.in);
+        ArrayList<Student> studentNewCourseList = new ArrayList<>();
         printTeacherList(GlobantUniversity);
         System.out.println("Write down the name of the existing teacher");
         String existingTeacher = scan.nextLine();
@@ -219,8 +221,31 @@ public class Main {
         for (int i = 0; i < GlobantUniversity.getTeacherAmount(); i++) {
             Teacher currentTeacher = teachers.get(i);
             if (existingTeacher.equals(currentTeacher.getName())) {
-                currentTeacher.insertTeacher(newStudent);
-                System.out.println("New student added to " + currentCourse.getName() + " course!\n");
+                GlobantUniversity.insertTeacher(currentTeacher);
+                Course newCourse = new Course(newCourseName, existingClassroom, currentTeacher, studentNewCourseList);
+                System.out.println(currentTeacher.getName() + " is assigned to the new " + newCourseName + "course!\n");
+            } else {
+                System.out.println("The teacher inserted is not part of the University");
+            }
+        }
+
+
+
+
+
+        System.out.println("Write down the name of the existing student");
+        String existingStudent = scan.nextLine();
+        scan = new Scanner(System.in);
+
+        List<Student> students = GlobantUniversity.getStudentList();
+        for (int i = 0; i < GlobantUniversity.getStudentListAmount(); i++) {
+            Student currentStudent = students.get(i);
+            if (existingStudent.equals(currentStudent.getName())) {
+                GlobantUniversity.insertStudent(currentStudent);
+                newCourse.insertStudentCourse(currentStudent);
+                System.out.println(currentStudent.getName() + " is assigned to the new " + newCourse + "course!\n");
+            } else {
+                System.out.println("The teacher inserted is not part of the University");
             }
         }
 
@@ -229,7 +254,9 @@ public class Main {
 
 
 
-        Course newCourse = new Course(newName, existingClassroom, existingTeacher, );
+
+
+
 
 
     }
