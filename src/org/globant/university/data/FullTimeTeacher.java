@@ -1,9 +1,9 @@
 package org.globant.university.data;
 
-public class TeacherFullTime extends Teacher {
+public class FullTimeTeacher extends Teacher {
     private int yearsExperience;
 
-    public TeacherFullTime(String name, double basicSalary, int yearsExperience) {
+    public FullTimeTeacher(String name, double basicSalary, int yearsExperience) {
         super(name, basicSalary);
         this.yearsExperience = yearsExperience;
     }

@@ -2,9 +2,7 @@ package org.globant.university.persistance;
 
 import org.globant.university.data.*;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 public class DataInitializer {
     public static University loadUniversity() {
@@ -28,10 +26,10 @@ public class DataInitializer {
     }
 
     public static void loadTeachersIntoUni(University GlobantUniversity) {
-        Teacher teacher1 = new TeacherFullTime("York Roessler", 400, 4);
-        Teacher teacher2 = new TeacherFullTime("Priyanto Kusuma", 400, 5 );
-        Teacher teacher3 = new TeacherPartTime("Marcus Theller", 200, 20);
-        Teacher teacher4 = new TeacherPartTime("Marco Azuero", 200, 30);
+        Teacher teacher1 = new FullTimeTeacher("York Roessler", 400, 4);
+        Teacher teacher2 = new FullTimeTeacher("Priyanto Kusuma", 400, 5 );
+        Teacher teacher3 = new PartTimeTeacher("Marcus Theller", 200, 20);
+        Teacher teacher4 = new PartTimeTeacher("Marco Azuero", 200, 30);
 
         GlobantUniversity.insertTeacher(teacher1);
         GlobantUniversity.insertTeacher(teacher2);
@@ -52,10 +50,10 @@ public class DataInitializer {
         ArrayList<Student> studentCourseList3 = new ArrayList<>();
         ArrayList<Student> studentCourseList4 = new ArrayList<>();
 
-        Teacher teacher1 = new TeacherFullTime("York Roessler", 400, 4);
-        Teacher teacher2 = new TeacherFullTime("Priyanto Kusuma", 400, 5 );
-        Teacher teacher3 = new TeacherPartTime("Marcus Theller", 200, 20);
-        Teacher teacher4 = new TeacherPartTime("Marco Azuero", 200, 30);
+        Teacher teacher1 = new FullTimeTeacher("York Roessler", 400, 4);
+        Teacher teacher2 = new FullTimeTeacher("Priyanto Kusuma", 400, 5 );
+        Teacher teacher3 = new PartTimeTeacher("Marcus Theller", 200, 20);
+        Teacher teacher4 = new PartTimeTeacher("Marco Azuero", 200, 30);
 
         Course scrum  = new Course("Scrum", 101, teacher1, studentCourseList1 );
         Course wireline  = new Course("Wireline", 102, teacher2, studentCourseList2 );

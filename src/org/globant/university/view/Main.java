@@ -39,12 +39,12 @@ public class Main {
                     printTeacherListData(GlobantUniversity);
                     break;
                 case 2:
-                    System.out.println("Work in progress 2");
                     printCourseList(GlobantUniversity);
                     displayCourseMenu(GlobantUniversity);
                     break;
                 case 3:
                     System.out.println("Work in progress 3");
+                    insertNewStudentIntoCourse(GlobantUniversity);
                     break;
                 case 4:
                     System.out.println("Work in progress 4");
@@ -75,7 +75,6 @@ public class Main {
             switch (option) {
                 case 1:
                     printCourseData(GlobantUniversity);
-                    //printCourseDataTest(GlobantUniversity);
                     break;
                 case 2:
                     System.out.println("Return to the previous menu\n");
@@ -91,9 +90,7 @@ public class Main {
 
     public static void printCourseData(University GlobantUniversity) {
         Scanner scan = new Scanner(System.in);
-        System.out.println("Work in progress 1");
         System.out.println("Write down the code of the course");
-        System.out.println("");
         Integer tempCourse = scan.nextInt();
         scan = new Scanner(System.in);
         List<Course> courses = GlobantUniversity.getCourseList();
@@ -107,11 +104,10 @@ public class Main {
                 System.out.println("Course name: \t" + currentCourse.getName());
                 System.out.println("Classroom number: \t" + currentCourse.getClassroom());
                 System.out.println("Teacher name: \t" + currentCourse.getTeacherName());
-                //System.out.println("List of Students: " + currentCourse.getStudentListCourse());
                 System.out.println("List of students: ");
-                System.out.println("id \t\t Student name");
+                System.out.println("id \t\t\t Student name");
                 List<Student> studentsCourse = currentCourse.getStudentListCourse();
-                for(int j =0; j < currentCourse.studentListCourse.size(); j++) {
+                for (int j = 0; j < currentCourse.studentListCourse.size(); j++) {
                     Student currentStudent = studentsCourse.get(j);
                     System.out.print(currentStudent.getId() + "\t\t" + currentStudent.getName() + "\n");
                 }
@@ -128,10 +124,10 @@ public class Main {
             List<Student> students = GlobantUniversity.getStudentList();
             System.out.println("List of students: ");
             System.out.println("id \t\t Student name");
-            for(int i =0; i < GlobantUniversity.getStudentListAmount(); i++) {
+            for (int i = 0; i < GlobantUniversity.getStudentListAmount(); i++) {
                 Student currentStudent = students.get(i);
                 System.out.println(currentStudent.getName());
-                }
+            }
             System.out.println("\n");
         }
     }
@@ -139,7 +135,7 @@ public class Main {
     public static void teacherListComplete(University GlobantUniversity) {
         List<String> teachers = GlobantUniversity.getTeacherCompleteList();
         List<Teacher> teacher = GlobantUniversity.getTeacherList();
-        for(int i =0; i < GlobantUniversity.getTeacherAmount(); i++) {
+        for (int i = 0; i < GlobantUniversity.getTeacherAmount(); i++) {
             Teacher currentTeacher = teacher.get(i);
             teachers.add(currentTeacher.getName());
         }
@@ -153,7 +149,7 @@ public class Main {
             System.out.println("No teachers registered on the university.\n");
         } else {
             System.out.println("List of teachers: ");
-            for(int i =0; i < GlobantUniversity.getTeacherCompleteListAmount(); i++) {
+            for (int i = 0; i < GlobantUniversity.getTeacherCompleteListAmount(); i++) {
                 String currentStudent = teachers.get(i);
                 System.out.println(currentStudent);
             }
@@ -168,7 +164,7 @@ public class Main {
             System.out.println("List of courses:");
             List<Course> courses = GlobantUniversity.getCourseList();
             System.out.println("id \t\t Course");
-            for(int i =0; i < GlobantUniversity.getCourseListAmount(); i++) {
+            for (int i = 0; i < GlobantUniversity.getCourseListAmount(); i++) {
                 Course currentCourse = courses.get(i);
                 System.out.print(currentCourse.getId() + "\t\t" + currentCourse.getName() + "\n");
             }
@@ -179,13 +175,35 @@ public class Main {
     public static void printTeacherListData(University GlobantUniversity) {
         List<Teacher> teacher = GlobantUniversity.getTeacherList();
         System.out.println("Teacher Name \t\t Salary (USD)");
-        for(int i =0; i < GlobantUniversity.getTeacherAmount(); i++) {
+        for (int i = 0; i < GlobantUniversity.getTeacherAmount(); i++) {
             Teacher currentTeacher = teacher.get(i);
-            System.out.print(currentTeacher.getName() +  "\t\t" + currentTeacher.totalSalary() + "\n");
+            System.out.print(currentTeacher.getName() + "\t\t" + currentTeacher.totalSalary() + "\n");
         }
         System.out.println("\n");
     }
 
-
+    public static void insertNewStudentIntoCourse(University GlobantUniversity) {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Write down the name of the new student");
+        String tempName = scan.nextLine();
+        scan = new Scanner(System.in);
+        System.out.println("Write down the age of the new student");
+        Integer tempAge = scan.nextInt();
+        scan = new Scanner(System.in);
+        Student studentNew = new Student(tempName, tempAge);
+        GlobantUniversity.insertStudent(studentNew);
+        printCourseList(GlobantUniversity);
+        System.out.println("Write down the code of the existing course to add the new student");
+        Integer tempCourse = scan.nextInt();
+        scan = new Scanner(System.in);
+        List<Course> courses = GlobantUniversity.getCourseList();
+        for (int i = 0; i < GlobantUniversity.getCourseListAmount(); i++) {
+            Course currentCourse = courses.get(i);
+            if (tempCourse.equals(currentCourse.getId())) {
+                currentCourse.insertStudentCourse(studentNew);
+                System.out.println("New student added to " + currentCourse.getName() + " course!\n");
+            }
+        }
+    }
 
 }
