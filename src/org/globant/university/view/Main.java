@@ -132,29 +132,25 @@ public class Main {
     }
 
     public static void teacherListComplete(University GlobantUniversity) {
-        List<String> teachers = GlobantUniversity.getTeacherCompleteList();
+        List<Teacher> teachers = GlobantUniversity.getTeacherCompleteList();
         List<Teacher> teacher = GlobantUniversity.getTeacherList();
         for (int i = 0; i < GlobantUniversity.getTeacherAmount(); i++) {
             Teacher currentTeacher = teacher.get(i);
-            teachers.add(currentTeacher.getName());
+            teachers.add(currentTeacher);
         }
     }
 
 
     public static void printTeacherList(University GlobantUniversity) {
-        // teacherListComplete(GlobantUniversity);
-        List<String> teachers = GlobantUniversity.getTeacherCompleteList();
-        if (GlobantUniversity.getTeacherCompleteListAmount() == 0) {
-            System.out.println("No teachers registered on the university.\n");
-        } else {
-            System.out.println("List of teachers: ");
-            for (int i = 0; i < GlobantUniversity.getTeacherCompleteListAmount(); i++) {
-                String currentStudent = teachers.get(i);
-                System.out.println(currentStudent);
-            }
-            System.out.println("\n");
+        List<Teacher> teacher = GlobantUniversity.getTeacherList();
+        System.out.println("Teacher Name \t\t Salary (USD)");
+        for (int i = 0; i < GlobantUniversity.getTeacherAmount(); i++) {
+            Teacher currentTeacher = teacher.get(i);
+            System.out.print(currentTeacher.getName() + "\t\t" + currentTeacher.totalSalary() + "\n");
         }
+        System.out.println("\n");
     }
+
 
     public static void printCourseList(University GlobantUniversity) {
         if (GlobantUniversity.getCourseListAmount() == 0) {

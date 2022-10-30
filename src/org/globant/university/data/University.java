@@ -7,7 +7,7 @@ public class University {
     public String name;
     public List<Student> studentList;
     public List<Teacher> teacherList;
-    public List<String> teacherCompleteList;
+    public List<Teacher> teacherCompleteList;
     public List<Course> courseList;
 
     public University(String name) {
@@ -42,7 +42,7 @@ public class University {
         this.teacherList.add(teacher);
     }
 
-    public List<String> getTeacherCompleteList() {
+    public List<Teacher> getTeacherCompleteList() {
         return teacherCompleteList;
     }
     public int getTeacherCompleteListAmount() { return teacherCompleteList.size(); }
