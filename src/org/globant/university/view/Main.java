@@ -143,10 +143,10 @@ public class Main {
 
     public static void printTeacherList(University GlobantUniversity) {
         List<Teacher> teacher = GlobantUniversity.getTeacherList();
-        System.out.println("Teacher Name \t\t Salary (USD)");
+        System.out.println("List of teachers:");
         for (int i = 0; i < GlobantUniversity.getTeacherAmount(); i++) {
             Teacher currentTeacher = teacher.get(i);
-            System.out.print(currentTeacher.getName() + "\t\t" + currentTeacher.totalSalary() + "\n");
+            System.out.print(currentTeacher.getName() + "\n");
         }
         System.out.println("\n");
     }
@@ -218,9 +218,9 @@ public class Main {
         for (int i = 0; i < GlobantUniversity.getTeacherAmount(); i++) {
             Teacher currentTeacher = teachers.get(i);
             if (existingTeacher.equals(currentTeacher.getName())) {
-                GlobantUniversity.insertTeacher(currentTeacher);
+                //GlobantUniversity.insertTeacher(currentTeacher);
                 Course newCourse = new Course(newCourseName, existingClassroom, currentTeacher, studentNewCourseList);
-                System.out.println(currentTeacher.getName() + " is assigned to the new " + newCourseName + "course!\n");
+                System.out.println(currentTeacher.getName() + " is assigned to the new " + newCourseName + " course!\n");
                 System.out.println("Write down the name of the existing student");
                 String existingStudent = scan.nextLine();
                 scan = new Scanner(System.in);
@@ -239,5 +239,8 @@ public class Main {
                 System.out.println("The teacher inserted is not part of the University");
             }
         }
+
+
+
     }
 }
