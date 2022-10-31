@@ -10,7 +10,7 @@ public class Course {
     private final int id;
     public int classroom;
     public Teacher teacher;
-
+    public ArrayList<String> studentListCourseString;
     public ArrayList<Student> studentListCourse;
 
     public Course (String name, int classroom, Teacher teacher, ArrayList<Student> studentListCourse) {
@@ -39,6 +39,8 @@ public class Course {
     public List<Student> getStudentListCourse() {
         return studentListCourse;
     }
+    public List<String> getstudentListCourseString() {return studentListCourseString; }
+
 
 
 

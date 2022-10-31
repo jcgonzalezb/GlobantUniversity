@@ -51,9 +51,6 @@ public class University {
     public List<String> getStudentStringList() {
         return studentStringList;
     }
-
-
-
     public List<Course> getCourseList() {
         return courseList;
     }
