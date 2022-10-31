@@ -8,6 +8,7 @@ public class University {
     public List<Student> studentList;
     public List<Teacher> teacherList;
     public List<String> teacherStringList;
+    public List<String> studentStringList;
     public List<Course> courseList;
 
     public University(String name) {
@@ -15,6 +16,7 @@ public class University {
         this.studentList = new ArrayList<>();
         this.teacherList = new ArrayList<>();
         this.teacherStringList = new ArrayList<>();
+        this.studentStringList = new ArrayList<>();
         this.courseList = new ArrayList<>();
     }
 
@@ -45,7 +47,12 @@ public class University {
     public List<String> getTeacherStringList() {
         return teacherStringList;
     }
-    public int getTeacherStringListAmount() { return teacherStringList.size(); }
+
+    public List<String> getStudentStringList() {
+        return studentStringList;
+    }
+
+
 
     public List<Course> getCourseList() {
         return courseList;
@@ -54,5 +61,7 @@ public class University {
     public void insertCourse(Course course) {
         this.courseList.add(course);
     }
+
+
 
 }

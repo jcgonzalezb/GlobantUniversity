@@ -227,13 +227,53 @@ public class Main {
             for (int i = 0; i < GlobantUniversity.getTeacherAmount(); i++) {
                 Teacher currentTeacher = teacher.get(i);
                 if (existingTeacher.equals(currentTeacher.getName())) {
+                    System.out.println("The teacher is part of the University.");
                     Course newCourse = new Course(newCourseName, existingClassroom, currentTeacher, studentNewCourseList);
                     GlobantUniversity.insertCourse(newCourse);
                     System.out.println(currentTeacher.getName() + " is assigned to the new " + newCourseName + " course!\n");
-                    System.out.println("Write down the name of the existing student");
-                    String existingStudent = scan.nextLine();
-                    scan = new Scanner(System.in);
-                    List<Student> students = GlobantUniversity.getStudentList();
+                    boolean exit = false;
+                    do {
+                        System.out.println("Select an option:\n");
+                        System.out.println("1.  Insert existing students to the new course");
+                        System.out.println("2.  Return to the previous menu");
+                        int option = scan.nextInt();
+                        scan = new Scanner(System.in);
+                        switch (option) {
+                            case 1:
+                                System.out.println("Write down the name of the existing student");
+                                String existingStudent = scan.nextLine();
+                                scan = new Scanner(System.in);
+                                List<Student> students = GlobantUniversity.getStudentList();
+                                List<String> studentString = GlobantUniversity.getStudentStringList();
+                                System.out.println(students);
+                                for (int j = 0; j < GlobantUniversity.getStudentListAmount(); j++) {
+                                    Student currentStudent = students.get(j);
+                                    System.out.println(currentStudent.getName());
+                                    studentString.add(currentStudent.getName());
+                                }
+                                System.out.println(studentString);
+                                if (!studentString.contains(existingStudent)) {
+                                    System.out.println("The student inserted is not part of the University");
+                                } else {
+                                    for (int j = 0; j < GlobantUniversity.getStudentListAmount(); j++) {
+                                        Student currentStudent = students.get(j);
+                                        System.out.println(currentStudent.getName());
+                                        newCourse.insertStudentCourse(currentStudent);
+                                        System.out.println("Existing student added to the new course");
+                                    }
+                                }
+                                break;
+                            case 2:
+                                System.out.println("Return to the previous menu\n");
+                                exit = true;
+                                break;
+                            default:
+                                System.out.println("Please insert a valid option\n");
+                                break;
+                        }
+                    } while (!exit);
+
+
                     //                     System.out.println(currentStudent.getName() + " is assigned to the new " + newCourse + "course!\n");
                 }
 
