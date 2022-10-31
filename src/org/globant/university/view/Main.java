@@ -1,5 +1,6 @@
 package org.globant.university.view;
 
+import com.sun.org.apache.xpath.internal.functions.FuncFalse;
 import org.globant.university.data.*;
 import org.globant.university.persistance.DataInitializer;
 
@@ -131,12 +132,12 @@ public class Main {
         }
     }
 
-    public static void teacherListComplete(University GlobantUniversity) {
-        List<Teacher> teachers = GlobantUniversity.getTeacherCompleteList();
+    public static void teacherListString(University GlobantUniversity) {
         List<Teacher> teacher = GlobantUniversity.getTeacherList();
+        List<String> teachers = GlobantUniversity.getTeacherStringList();
         for (int i = 0; i < GlobantUniversity.getTeacherAmount(); i++) {
             Teacher currentTeacher = teacher.get(i);
-            teachers.add(currentTeacher);
+            teachers.add(currentTeacher.getName());
         }
     }
 
@@ -214,33 +215,31 @@ public class Main {
         System.out.println("Write down the name of the existing teacher");
         String existingTeacher = scan.nextLine();
         scan = new Scanner(System.in);
-        List<Teacher> teachers = GlobantUniversity.getTeacherList();
+        List<Teacher> teacher = GlobantUniversity.getTeacherList();
+        List<String> teacherString = GlobantUniversity.getTeacherStringList();
         for (int i = 0; i < GlobantUniversity.getTeacherAmount(); i++) {
-            Teacher currentTeacher = teachers.get(i);
-            if (existingTeacher.equals(currentTeacher.getName())) {
-                //GlobantUniversity.insertTeacher(currentTeacher);
-                Course newCourse = new Course(newCourseName, existingClassroom, currentTeacher, studentNewCourseList);
-                System.out.println(currentTeacher.getName() + " is assigned to the new " + newCourseName + " course!\n");
-                System.out.println("Write down the name of the existing student");
-                String existingStudent = scan.nextLine();
-                scan = new Scanner(System.in);
-                List<Student> students = GlobantUniversity.getStudentList();
-                for (int j = 0; j < GlobantUniversity.getStudentListAmount(); j++) {
-                    Student currentStudent = students.get(j);
-                    if (existingStudent.equals(currentStudent.getName())) {
-                        GlobantUniversity.insertStudent(currentStudent);
-                        newCourse.insertStudentCourse(currentStudent);
-                        System.out.println(currentStudent.getName() + " is assigned to the new " + newCourse + "course!\n");
-                    } else {
-                        System.out.println("The teacher inserted is not part of the University");
-                    }
-                }
-            } else {
-                System.out.println("The teacher inserted is not part of the University");
-            }
+            Teacher currentTeacher = teacher.get(i);
+            teacherString.add(currentTeacher.getName());
         }
+        if (!teacherString.contains(existingTeacher)) {
+            System.out.println("The teacher inserted is not part of the University");
+        } else {
+            for (int i = 0; i < GlobantUniversity.getTeacherAmount(); i++) {
+                Teacher currentTeacher = teacher.get(i);
+                if (existingTeacher.equals(currentTeacher.getName())) {
+                    Course newCourse = new Course(newCourseName, existingClassroom, currentTeacher, studentNewCourseList);
+                    GlobantUniversity.insertCourse(newCourse);
+                    System.out.println(currentTeacher.getName() + " is assigned to the new " + newCourseName + " course!\n");
+                    System.out.println("Write down the name of the existing student");
+                    String existingStudent = scan.nextLine();
+                    scan = new Scanner(System.in);
+                    List<Student> students = GlobantUniversity.getStudentList();
+                    //                     System.out.println(currentStudent.getName() + " is assigned to the new " + newCourse + "course!\n");
+                }
 
+            }
 
+        }
 
     }
 }

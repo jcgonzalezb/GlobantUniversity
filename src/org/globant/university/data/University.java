@@ -7,14 +7,14 @@ public class University {
     public String name;
     public List<Student> studentList;
     public List<Teacher> teacherList;
-    public List<Teacher> teacherCompleteList;
+    public List<String> teacherStringList;
     public List<Course> courseList;
 
     public University(String name) {
         this.name = name;
         this.studentList = new ArrayList<>();
         this.teacherList = new ArrayList<>();
-        this.teacherCompleteList = new ArrayList<>();
+        this.teacherStringList = new ArrayList<>();
         this.courseList = new ArrayList<>();
     }
 
@@ -42,10 +42,10 @@ public class University {
         this.teacherList.add(teacher);
     }
 
-    public List<Teacher> getTeacherCompleteList() {
-        return teacherCompleteList;
+    public List<String> getTeacherStringList() {
+        return teacherStringList;
     }
-    public int getTeacherCompleteListAmount() { return teacherCompleteList.size(); }
+    public int getTeacherStringListAmount() { return teacherStringList.size(); }
 
     public List<Course> getCourseList() {
         return courseList;
