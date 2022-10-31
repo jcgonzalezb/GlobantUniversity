@@ -230,7 +230,7 @@ public class Main {
                     System.out.println("The teacher is part of the University.");
                     Course newCourse = new Course(newCourseName, existingClassroom, currentTeacher, studentNewCourseList);
                     GlobantUniversity.insertCourse(newCourse);
-                    System.out.println(currentTeacher.getName() + " is assigned to the new " + newCourseName + " course!\n");
+                    System.out.println(currentTeacher.getName() + " has been assigned to the new " + newCourseName + " course!\n");
                     boolean exit = false;
                     do {
                         System.out.println("Select an option:\n");
@@ -245,21 +245,20 @@ public class Main {
                                 scan = new Scanner(System.in);
                                 List<Student> students = GlobantUniversity.getStudentList();
                                 List<String> studentString = GlobantUniversity.getStudentStringList();
-                                System.out.println(students);
                                 for (int j = 0; j < GlobantUniversity.getStudentListAmount(); j++) {
                                     Student currentStudent = students.get(j);
-                                    System.out.println(currentStudent.getName());
                                     studentString.add(currentStudent.getName());
                                 }
-                                System.out.println(studentString);
                                 if (!studentString.contains(existingStudent)) {
                                     System.out.println("The student inserted is not part of the University");
                                 } else {
                                     for (int j = 0; j < GlobantUniversity.getStudentListAmount(); j++) {
                                         Student currentStudent = students.get(j);
-                                        System.out.println(currentStudent.getName());
-                                        newCourse.insertStudentCourse(currentStudent);
-                                        System.out.println("Existing student added to the new course");
+                                        if (existingStudent.equals(currentStudent.getName())) {
+                                            System.out.println("The student is part of the University.");
+                                            newCourse.insertStudentCourse(currentStudent);
+                                            System.out.println(currentStudent.getName() + " has been assigned to the new " + newCourseName + " course!\n");
+                                        }
                                     }
                                 }
                                 break;
@@ -272,14 +271,8 @@ public class Main {
                                 break;
                         }
                     } while (!exit);
-
-
-                    //                     System.out.println(currentStudent.getName() + " is assigned to the new " + newCourse + "course!\n");
                 }
-
             }
-
         }
-
     }
 }
