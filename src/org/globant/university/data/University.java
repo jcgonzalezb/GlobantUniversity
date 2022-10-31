@@ -11,6 +11,7 @@ public class University {
     public List<String> studentStringList;
     public List<Integer> studentIntList;
     public List<Course> courseList;
+    public Student student1;
 
     public University(String name) {
         this.name = name;

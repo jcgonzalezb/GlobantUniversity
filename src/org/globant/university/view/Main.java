@@ -14,9 +14,7 @@ public class Main {
         System.out.println("Welcome to " + GlobantUniversity.getName() + "\n");
         DataInitializer.loadStudentsIntoUni(GlobantUniversity);
         printStudentList(GlobantUniversity);
-        DataInitializer.loadTeachersIntoUni(GlobantUniversity);
         printTeacherList(GlobantUniversity);
-        DataInitializer.loadCoursesIntoUni(GlobantUniversity);
         displayInitialMenu(GlobantUniversity);
 
     }
@@ -37,20 +35,24 @@ public class Main {
             scan = new Scanner(System.in);
             switch (option) {
                 case 1:
+                    System.out.println("");
                     printTeacherListData(GlobantUniversity);
                     break;
                 case 2:
+                    System.out.println("");
                     printCourseList(GlobantUniversity);
                     displayCourseMenu(GlobantUniversity);
                     break;
                 case 3:
+                    System.out.println("");
                     insertNewStudentIntoCourse(GlobantUniversity);
                     break;
                 case 4:
+                    System.out.println("");
                     insertNewCourse(GlobantUniversity);
                     break;
                 case 5:
-                    System.out.println("Work in progress 5");
+                    System.out.println("");
                     searchStudent(GlobantUniversity);
                     break;
                 case 6:
@@ -58,6 +60,7 @@ public class Main {
                     exit = true;
                     break;
                 default:
+                    System.out.println("");
                     System.out.println("Please insert a valid option\n");
                     break;
             }
@@ -291,13 +294,12 @@ public class Main {
                     Student currentStudent = studentsCourse.get(j);
                     studentInt.add(currentStudent.getId());
                 }
-                System.out.println(studentInt);
                 if (!studentInt.contains(searchStudent)) {
-                    System.out.println("The student inserted is not part of " + currentCourse.getName() + "\n");
+                    System.out.println("The student inserted is not part of " + currentCourse.getName() + " course. \n");
                 } else {
                     studentFound.add(searchStudent);
                     System.out.println("The student is part of the University.");
-                    System.out.println("The Student with id " + searchStudent + "is part of the " + currentCourse.getName() + "\n");
+                    System.out.println("The Student with id " + searchStudent + " is part of the " + currentCourse.getName() + " course. \n");
                 }
             }
         }
