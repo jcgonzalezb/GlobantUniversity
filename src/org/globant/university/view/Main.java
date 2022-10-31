@@ -287,18 +287,17 @@ public class Main {
                 List<Student> studentsCourse = currentCourse.getStudentListCourse();
                 List<Integer> studentInt = currentCourse.getStudentListCourseInt();
                 List<Integer> studentFound = currentCourse.getStudentListCourseInt();
-                System.out.println(studentsCourse);
                 for (int j = 0; j < currentCourse.getStudentListCourseAmount(); j++) {
                     Student currentStudent = studentsCourse.get(j);
                     studentInt.add(currentStudent.getId());
                 }
                 System.out.println(studentInt);
                 if (!studentInt.contains(searchStudent)) {
-                    System.out.println("The student inserted is not part of the University \n");
+                    System.out.println("The student inserted is not part of " + currentCourse.getName() + "\n");
                 } else {
                     studentFound.add(searchStudent);
                     System.out.println("The student is part of the University.");
-                    System.out.println("The Student with id " + searchStudent + "is part of the " + currentCourse + "\n");
+                    System.out.println("The Student with id " + searchStudent + "is part of the " + currentCourse.getName() + "\n");
                 }
             }
         }
