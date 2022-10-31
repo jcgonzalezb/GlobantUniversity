@@ -6,6 +6,7 @@ import org.globant.university.persistance.DataInitializer;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
@@ -98,7 +99,9 @@ public class Main {
         System.out.println("Course information:");
         for (int i = 0; i < GlobantUniversity.getCourseListAmount(); i++) {
             Course currentCourse = courses.get(i);
-            if (tempCourse.equals(currentCourse.getId())) {
+            if (!Objects.equals(tempCourse, currentCourse.getId())) {
+                System.out.print("");
+            } else {
                 System.out.println("Id: \t" + currentCourse.getId());
                 System.out.println("Course name: \t" + currentCourse.getName());
                 System.out.println("Classroom number: \t" + currentCourse.getClassroom());
@@ -108,11 +111,9 @@ public class Main {
                 List<Student> studentsCourse = currentCourse.getStudentListCourse();
                 for (int j = 0; j < currentCourse.studentListCourse.size(); j++) {
                     Student currentStudent = studentsCourse.get(j);
-                    System.out.print(currentStudent.getId() + "\t\t" + currentStudent.getName() + "\n");
+                    System.out.print(currentStudent.getId() + "\t\t" + currentStudent.getName());
                     System.out.println("");
                 }
-            } else {
-                System.out.print("");
             }
         }
     }
@@ -187,7 +188,7 @@ public class Main {
             Course currentCourse = courses.get(i);
             if (tempCourse.equals(currentCourse.getId())) {
                 currentCourse.insertStudentCourse(newStudent);
-                System.out.println("New student added to " + currentCourse.getName() + " course!\n");
+                System.out.println("A new student has been added to " + currentCourse.getName() + " course!\n");
             }
         }
     }
