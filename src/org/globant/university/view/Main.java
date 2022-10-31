@@ -294,7 +294,7 @@ public class Main {
                     studentInt.add(currentStudent.getId());
                 }
                 if (!studentInt.contains(searchStudent)) {
-                    System.out.println("The student inserted is not part of " + currentCourse.getName() + " course. \n");
+                    System.out.print("");
                 } else {
                     studentFound.add(searchStudent);
                     System.out.println("The student is part of the University.");
