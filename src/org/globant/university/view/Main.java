@@ -1,13 +1,9 @@
 package org.globant.university.view;
 
-import com.sun.org.apache.xpath.internal.functions.FuncFalse;
 import org.globant.university.data.*;
 import org.globant.university.persistance.DataInitializer;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -175,7 +171,7 @@ public class Main {
         String tempName = scan.nextLine();
         scan = new Scanner(System.in);
         System.out.println("Write down the age of the new student");
-        Integer tempAge = scan.nextInt();
+        int tempAge = scan.nextInt();
         scan = new Scanner(System.in);
         Student newStudent = new Student(tempName, tempAge);
         GlobantUniversity.insertStudent(newStudent);
@@ -192,15 +188,18 @@ public class Main {
             }
         }
     }
+    public static int getClassroomNumberNewCourse(int min, int max) {
+        Random random = new Random();
+        return random.nextInt(max - min) + min;
+    }
 
     public static void insertNewCourse(University GlobantUniversity) {
         Scanner scan = new Scanner(System.in);
         System.out.println("Write down the name of the new course");
         String newCourseName = scan.nextLine();
         scan = new Scanner(System.in);
-        System.out.println("Write down the number of the classroom (Choose a number from 100 to 120)");
-        Integer existingClassroom = scan.nextInt();
-        scan = new Scanner(System.in);
+        int existingClassroom = getClassroomNumberNewCourse(100, 120);
+        System.out.println("The classroom assigned to the " + newCourseName + " course is " + existingClassroom +".\n");
         ArrayList<Student> studentNewCourseList = new ArrayList<>();
         printTeacherList(GlobantUniversity);
         System.out.println("Write down the name of the existing teacher");
