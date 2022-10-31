@@ -125,12 +125,12 @@ public class Main {
             System.out.println("id \t\t Student name");
             for (int i = 0; i < GlobantUniversity.getStudentListAmount(); i++) {
                 Student currentStudent = students.get(i);
-                System.out.println(currentStudent.getId());
-                System.out.println(currentStudent.getName());
+                System.out.print(currentStudent.getId()+ "\t\t" + currentStudent.getName() + "\n");
             }
             System.out.println("\n");
         }
     }
+
     public static void printTeacherList(University GlobantUniversity) {
         List<Teacher> teacher = GlobantUniversity.getTeacherList();
         System.out.println("List of teachers:");
@@ -191,7 +191,7 @@ public class Main {
         }
     }
 
-    public static void insertNewCourse(University GlobantUniversity){
+    public static void insertNewCourse(University GlobantUniversity) {
         Scanner scan = new Scanner(System.in);
         System.out.println("Write down the name of the new course");
         String newCourseName = scan.nextLine();
@@ -276,25 +276,24 @@ public class Main {
         for (int i = 0; i < GlobantUniversity.getCourseListAmount(); i++) {
             Course currentCourse = courses.get(i);
             List<Student> students = currentCourse.getStudentListCourse();
-            List<String> studentString = currentCourse.getstudentListCourseString();
+            List<Integer> studentInt = currentCourse.getStudentListCourseInt();
+            List<Integer> studentFound = currentCourse.getStudentListCourseInt();
+            System.out.println(students);
+            System.out.println(studentInt);
+            System.out.println(studentFound);
             for (int j = 0; j < currentCourse.getStudentListCourseAmount(); j++) {
                 Student currentStudent = students.get(j);
-                studentString.add(currentStudent.getName());
+                System.out.println(currentStudent.getId());
+                studentInt.add(currentStudent.getId());
             }
-
-
-
-
-
+            System.out.println(studentInt);
+            if (!studentInt.contains(searchStudent)) {
+                System.out.println("The student inserted is not part of the University");
+            } else {
+                studentFound.add(searchStudent);
+                System.out.println("The student is part of the University.");
+                System.out.println("The Student with id " + searchStudent + "is part of the " + currentCourse + "\n");
+            }
         }
-
-
-
-
-
-
-
     }
-
-
 }

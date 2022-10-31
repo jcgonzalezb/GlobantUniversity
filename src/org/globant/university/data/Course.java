@@ -10,8 +10,8 @@ public class Course {
     private final int id;
     public int classroom;
     public Teacher teacher;
-    public ArrayList<String> studentListCourseString;
-    public ArrayList<Student> studentListCourse;
+    public List<Student> studentListCourse;
+    public List<Integer> studentListCourseInt;
 
     public Course (String name, int classroom, Teacher teacher, ArrayList<Student> studentListCourse) {
         this.name = name;
@@ -19,6 +19,8 @@ public class Course {
         this.classroom = classroom;
         this.teacher = teacher;
         this.studentListCourse = new ArrayList<>(studentListCourse);
+        this.studentListCourseInt = new ArrayList<>();
+
     }
 
     public String getName() { return this.name; }
@@ -39,15 +41,6 @@ public class Course {
     public List<Student> getStudentListCourse() {
         return studentListCourse;
     }
-    public List<String> getstudentListCourseString() {return studentListCourseString; }
-
-
-
-
-
-
-
-
-
+    public List<Integer> getStudentListCourseInt() {return studentListCourseInt; }
 
 }
