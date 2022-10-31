@@ -122,7 +122,7 @@ public class Main {
         } else {
             List<Student> students = GlobantUniversity.getStudentList();
             System.out.println("List of students: ");
-            System.out.println("id \t\t Student name");
+            System.out.println("id \t\t\t Student name");
             for (int i = 0; i < GlobantUniversity.getStudentListAmount(); i++) {
                 Student currentStudent = students.get(i);
                 System.out.print(currentStudent.getId()+ "\t\t" + currentStudent.getName() + "\n");
@@ -269,7 +269,7 @@ public class Main {
     public static void searchStudent(University GlobantUniversity) {
         Scanner scan = new Scanner(System.in);
         printStudentList(GlobantUniversity);
-        System.out.println("Write down the id of the student you are looking for");
+        System.out.println("Write down the id of the student you want ot learn about");
         Integer searchStudent = scan.nextInt();
         scan = new Scanner(System.in);
         List<Student> students = GlobantUniversity.getStudentList();
