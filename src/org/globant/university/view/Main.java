@@ -12,11 +12,8 @@ public class Main {
     public static void main(String[] args) {
         University GlobantUniversity = DataInitializer.loadUniversity();
         System.out.println("Welcome to " + GlobantUniversity.getName() + "\n");
-        DataInitializer.loadStudentsIntoUni(GlobantUniversity);
-        printStudentList(GlobantUniversity);
-        printTeacherList(GlobantUniversity);
+        DataInitializer.loadInitialDataIntoUni(GlobantUniversity);
         displayInitialMenu(GlobantUniversity);
-
     }
 
     public static void displayInitialMenu(University GlobantUniversity) {
@@ -112,9 +109,10 @@ public class Main {
                 for (int j = 0; j < currentCourse.studentListCourse.size(); j++) {
                     Student currentStudent = studentsCourse.get(j);
                     System.out.print(currentStudent.getId() + "\t\t" + currentStudent.getName() + "\n");
+                    System.out.println("");
                 }
             } else {
-                System.out.println("");
+                System.out.print("");
             }
         }
     }

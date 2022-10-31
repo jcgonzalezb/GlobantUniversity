@@ -10,7 +10,7 @@ public class DataInitializer {
         return GlobantUniversity;
     }
 
-    public static void loadStudentsIntoUni(University GlobantUniversity) {
+    public static void loadInitialDataIntoUni(University GlobantUniversity) {
         Student student1 = new Student("Juan Gonzalez", 17);
         Student student2 = new Student("Diego Gonzalez", 21);
         Student student3 = new Student("Maria Bautista", 20);
@@ -43,13 +43,6 @@ public class DataInitializer {
         Course wireline  = new Course("Wireline", 102, teacher2, studentCourseList2 );
         Course logistics  = new Course("Logistics", 103, teacher3, studentCourseList3 );
         Course business  = new Course("Business", 104, teacher4, studentCourseList4 );
-
-        //Student student1 = new Student("Juan Gonzalez", 17);
-        //Student student2 = new Student("Diego Gonzalez", 21);
-        //Student student3 = new Student("Maria Bautista", 20);
-        //Student student4 = new Student("Jose Gonzalez", 23);
-        //Student student5 = new Student("Ana Buvinghausen", 24);
-        //Student student6 = new Student("Ken Buvinghausen", 25);
 
         scrum.insertStudentCourse(student1);
         scrum.insertStudentCourse(student2);
