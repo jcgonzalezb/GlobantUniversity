@@ -25,17 +25,16 @@ The program should:
 
 ## Table of content
 * [Architecture](#architecture)
-  * [UML](#uml)
+  * [UML (Unified Modeling Language)](#uml)
 * [Environment](#environment)
     * [File Descriptions](#file-descriptions)
-* [Usage](#usage)
 * [Bugs](#bugs)
 * [Author](#author)
 * [License](#license)
 
 ##  Architecture
 ### UML
-![UML](org/globant/university/images/UML_Globlant_University.png)
+![UML (Unified Modeling Language)](org/globant/university/images/UML_Globlant_University.png)
 
 ##  Environment
 This project was developed on IntelliJ IDEA 2022.2.3 (Community Edition).
