@@ -1,5 +1,6 @@
 package org.globant.university.view;
 
+import com.sun.deploy.security.SelectableSecurityManager;
 import org.globant.university.data.*;
 import org.globant.university.persistance.DataInitializer;
 
@@ -105,7 +106,8 @@ public class Main {
                 System.out.println("List of students: ");
                 System.out.println("id \t\t\t Student name");
                 List<Student> studentsCourse = currentCourse.getStudentListCourse();
-                for (int j = 0; j < currentCourse.studentListCourse.size(); j++) {
+                System.out.println(currentCourse.getName());
+                for (int j = 0; j < currentCourse.getStudentListCourseAmount(); j++) {
                     Student currentStudent = studentsCourse.get(j);
                     System.out.print(currentStudent.getId() + "\t\t" + currentStudent.getName());
                     System.out.println("");
@@ -230,21 +232,24 @@ public class Main {
                         scan = new Scanner(System.in);
                         switch (option) {
                             case 1:
-                                System.out.println("Write down the name of the existing student");
-                                String existingStudent = scan.nextLine();
+                                printStudentList(GlobantUniversity);
+                                System.out.println("Write down the Id of the existing student");
+                                Integer searchStudent = scan.nextInt();
                                 scan = new Scanner(System.in);
                                 List<Student> students = GlobantUniversity.getStudentList();
-                                List<String> studentString = GlobantUniversity.getStudentStringList();
+                                List<Integer> studentInteger = GlobantUniversity.getStudentIntList();
                                 for (int j = 0; j < GlobantUniversity.getStudentListAmount(); j++) {
                                     Student currentStudent = students.get(j);
-                                    studentString.add(currentStudent.getName());
+                                    studentInteger.add(currentStudent.getId());
                                 }
-                                if (!studentString.contains(existingStudent)) {
+                                if (!studentInteger.contains(searchStudent)) {
                                     System.out.println("The student inserted is not part of the University");
                                 } else {
                                     for (int j = 0; j < GlobantUniversity.getStudentListAmount(); j++) {
                                         Student currentStudent = students.get(j);
-                                        if (existingStudent.equals(currentStudent.getName())) {
+                                        if (!searchStudent.equals(currentStudent.getId())) {
+                                            System.out.print("");
+                                        } else {
                                             System.out.println("The student is part of the University.");
                                             newCourse.insertStudentCourse(currentStudent);
                                             System.out.println(currentStudent.getName() + " has been assigned to the new " + newCourseName + " course!\n");

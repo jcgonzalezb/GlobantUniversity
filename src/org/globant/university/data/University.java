@@ -58,7 +58,6 @@ public class University {
     public List<Integer> getStudentIntList() {
         return studentIntList;
     }
-
     public List<Course> getCourseList() {
         return courseList;
     }
